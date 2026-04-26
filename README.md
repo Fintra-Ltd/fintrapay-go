@@ -2,11 +2,19 @@
 
 Official Go SDK for the [FintraPay](https://fintrapay.io) crypto payment gateway API. Accept stablecoin payments, payment links, subscriptions, deposit API, payouts, withdrawals, and earn yield -- all with automatic HMAC-SHA256 request signing.
 
-[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://pkg.go.dev/github.com/Fintra-Ltd/fintrapay-go)
+[![Version](https://img.shields.io/badge/version-0.2.0-blue.svg)](https://pkg.go.dev/github.com/Fintra-Ltd/fintrapay-go)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Go](https://img.shields.io/badge/go-1.21%2B-blue.svg)](https://go.dev/)
 
 ---
+
+> ## ⚠️ v0.2.0 — Breaking change to webhook verification
+>
+> The webhook signature verifier now requires the `X-FintraPay-Timestamp` header
+> to support the v2 webhook envelope (`HMAC(timestamp + "\n" + body)`). Versions
+> prior to 0.2.0 silently rejected every legitimate v2 delivery.
+>
+> See [CHANGELOG.md](CHANGELOG.md) for the migration in your language.
 
 ## Installation
 
@@ -59,7 +67,7 @@ func webhookHandler(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 
 	sig := r.Header.Get("X-FintraPay-Signature")
-	if !fintrapay.VerifyWebhookSignature(body, sig, webhookSecret) {
+	if !fintrapay.VerifyWebhookSignature(body, sig, webhookSecret, r.Header.Get("X-FintraPay-Timestamp")) {
 		http.Error(w, "Invalid signature", http.StatusUnauthorized)
 		return
 	}
@@ -249,7 +257,7 @@ func webhookHandler(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 
 	sig := r.Header.Get("X-FintraPay-Signature")
-	if !fintrapay.VerifyWebhookSignature(body, sig, webhookSecret) {
+	if !fintrapay.VerifyWebhookSignature(body, sig, webhookSecret, r.Header.Get("X-FintraPay-Timestamp")) {
 		http.Error(w, "Invalid signature", http.StatusUnauthorized)
 		return
 	}
