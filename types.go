@@ -72,6 +72,10 @@ type CreatePayoutRequest struct {
 	Blockchain string `json:"blockchain"`
 	Reason     string `json:"reason,omitempty"`
 	Reference  string `json:"reference,omitempty"`
+	// FeeDeduction is "from_amount" (default) — the recipient gets amount
+	// minus fees — or "from_balance", where the recipient gets exactly
+	// amount and the fees are debited on top. Empty means from_amount.
+	FeeDeduction string `json:"fee_deduction,omitempty"`
 }
 
 // Payout represents a single payout.
@@ -150,6 +154,13 @@ type CreateWithdrawalRequest struct {
 	Amount     string `json:"amount"`
 	Currency   string `json:"currency"`
 	Blockchain string `json:"blockchain"`
+	// ToAddress is optional; when empty the withdrawal goes to the wallet
+	// registered for this chain on your merchant profile.
+	ToAddress string `json:"to_address,omitempty"`
+	// FeeDeduction is "from_amount" (default) — the recipient gets amount
+	// minus fees — or "from_balance", where the recipient gets exactly
+	// amount and the fees are debited on top. Empty means from_amount.
+	FeeDeduction string `json:"fee_deduction,omitempty"`
 }
 
 // Withdrawal represents a withdrawal.
