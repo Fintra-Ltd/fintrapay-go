@@ -21,27 +21,27 @@ type CreateInvoiceRequest struct {
 
 // Invoice represents a payment invoice.
 type Invoice struct {
-	ID              string          `json:"id"`
-	MerchantID      string          `json:"merchant_id"`
-	ExternalID      string          `json:"external_id,omitempty"`
-	Mode            string          `json:"mode"`
-	Amount          string          `json:"amount"`
-	Currency        string          `json:"currency"`
-	Blockchain      string          `json:"blockchain"`
-	Network         string          `json:"network"`
-	PaymentAddress  string          `json:"payment_address"`
-	CheckoutURL     string          `json:"checkout_url,omitempty"`
-	Status          string          `json:"status"`
-	PaymentTxHash   string          `json:"payment_tx_hash,omitempty"`
-	ReceivedAmount  string          `json:"received_amount,omitempty"`
-	Confirmations   int             `json:"confirmations,omitempty"`
-	FeeAmount       string          `json:"fee_amount,omitempty"`
-	WebhookStatus   string          `json:"webhook_status,omitempty"`
-	PaidAt          string          `json:"paid_at,omitempty"`
-	ExpiresAt       string          `json:"expires_at,omitempty"`
-	CreatedAt       string          `json:"created_at"`
-	UpdatedAt       string          `json:"updated_at"`
-	Extra           json.RawMessage `json:"-"`
+	ID             string          `json:"id"`
+	MerchantID     string          `json:"merchant_id"`
+	ExternalID     string          `json:"external_id,omitempty"`
+	Mode           string          `json:"mode"`
+	Amount         string          `json:"amount"`
+	Currency       string          `json:"currency"`
+	Blockchain     string          `json:"blockchain"`
+	Network        string          `json:"network"`
+	PaymentAddress string          `json:"payment_address"`
+	CheckoutURL    string          `json:"checkout_url,omitempty"`
+	Status         string          `json:"status"`
+	PaymentTxHash  string          `json:"payment_tx_hash,omitempty"`
+	ReceivedAmount string          `json:"received_amount,omitempty"`
+	Confirmations  int             `json:"confirmations,omitempty"`
+	FeeAmount      string          `json:"fee_amount,omitempty"`
+	WebhookStatus  string          `json:"webhook_status,omitempty"`
+	PaidAt         string          `json:"paid_at,omitempty"`
+	ExpiresAt      string          `json:"expires_at,omitempty"`
+	CreatedAt      string          `json:"created_at"`
+	UpdatedAt      string          `json:"updated_at"`
+	Extra          json.RawMessage `json:"-"`
 }
 
 // ListInvoicesParams holds query parameters for listing invoices.
@@ -197,24 +197,24 @@ type CreateEarnContractRequest struct {
 
 // EarnContract represents an Earn contract.
 type EarnContract struct {
-	ID                 string `json:"id"`
-	MerchantID         string `json:"merchant_id"`
-	PrincipalAmount    string `json:"principal_amount"`
-	Currency           string `json:"currency"`
-	Blockchain         string `json:"blockchain"`
-	Network            string `json:"network"`
-	DurationMonths     int    `json:"duration_months"`
-	TermDays           int    `json:"term_days"`
-	APY                string `json:"apy"`
-	DailyInterestAmt   string `json:"daily_interest_amount"`
-	AccruedInterest    string `json:"accrued_interest"`
-	WithdrawnInterest  string `json:"withdrawn_interest"`
-	Status             string `json:"status"`
-	StartDate          string `json:"start_date"`
-	MaturityDate       string `json:"maturity_date"`
-	BrokenAt           string `json:"broken_at,omitempty"`
-	CreatedAt          string `json:"created_at"`
-	UpdatedAt          string `json:"updated_at"`
+	ID                string `json:"id"`
+	MerchantID        string `json:"merchant_id"`
+	PrincipalAmount   string `json:"principal_amount"`
+	Currency          string `json:"currency"`
+	Blockchain        string `json:"blockchain"`
+	Network           string `json:"network"`
+	DurationMonths    int    `json:"duration_months"`
+	TermDays          int    `json:"term_days"`
+	APY               string `json:"apy"`
+	DailyInterestAmt  string `json:"daily_interest_amount"`
+	AccruedInterest   string `json:"accrued_interest"`
+	WithdrawnInterest string `json:"withdrawn_interest"`
+	Status            string `json:"status"`
+	StartDate         string `json:"start_date"`
+	MaturityDate      string `json:"maturity_date"`
+	BrokenAt          string `json:"broken_at,omitempty"`
+	CreatedAt         string `json:"created_at"`
+	UpdatedAt         string `json:"updated_at"`
 }
 
 // ListEarnContractsParams holds query parameters for listing Earn contracts.
@@ -418,20 +418,20 @@ type UpdatePaymentLinkRequest struct {
 
 // PaymentLink represents a payment link.
 type PaymentLink struct {
-	ID             string `json:"id"`
-	MerchantID     string `json:"merchant_id"`
-	Amount         string `json:"amount"`
-	Currency       string `json:"currency"`
-	Blockchain     string `json:"blockchain"`
-	Mode           string `json:"mode"`
-	Title          string `json:"title,omitempty"`
-	Description    string `json:"description,omitempty"`
-	URL            string `json:"url"`
-	RedirectURL    string `json:"redirect_url,omitempty"`
-	ExternalID     string `json:"external_id,omitempty"`
-	Status         string `json:"status"`
-	CreatedAt      string `json:"created_at"`
-	UpdatedAt      string `json:"updated_at"`
+	ID          string `json:"id"`
+	MerchantID  string `json:"merchant_id"`
+	Amount      string `json:"amount"`
+	Currency    string `json:"currency"`
+	Blockchain  string `json:"blockchain"`
+	Mode        string `json:"mode"`
+	Title       string `json:"title,omitempty"`
+	Description string `json:"description,omitempty"`
+	URL         string `json:"url"`
+	RedirectURL string `json:"redirect_url,omitempty"`
+	ExternalID  string `json:"external_id,omitempty"`
+	Status      string `json:"status"`
+	CreatedAt   string `json:"created_at"`
+	UpdatedAt   string `json:"updated_at"`
 }
 
 // PaymentLinkList is the response for listing payment links.
@@ -446,14 +446,14 @@ type PaymentLinkList struct {
 
 // CreatePlanRequest is the request body for creating a subscription plan.
 type CreatePlanRequest struct {
-	Name           string `json:"name"`
-	Amount         string `json:"amount"`
-	Currency       string `json:"currency"`
-	Blockchain     string `json:"blockchain"`
-	Interval       string `json:"interval"`
-	IntervalCount  int    `json:"interval_count,omitempty"`
-	Description    string `json:"description,omitempty"`
-	TrialDays      int    `json:"trial_days,omitempty"`
+	Name          string `json:"name"`
+	Amount        string `json:"amount"`
+	Currency      string `json:"currency"`
+	Blockchain    string `json:"blockchain"`
+	Interval      string `json:"interval"`
+	IntervalCount int    `json:"interval_count,omitempty"`
+	Description   string `json:"description,omitempty"`
+	TrialDays     int    `json:"trial_days,omitempty"`
 }
 
 // SubscriptionPlan represents a subscription plan.
@@ -485,28 +485,28 @@ type PlanList struct {
 
 // CreateSubscriptionRequest is the request body for creating a subscription.
 type CreateSubscriptionRequest struct {
-	PlanID        string `json:"plan_id"`
-	CustomerEmail string `json:"customer_email,omitempty"`
-	CustomerName  string `json:"customer_name,omitempty"`
-	ExternalID    string `json:"external_id,omitempty"`
+	PlanID        string                 `json:"plan_id"`
+	CustomerEmail string                 `json:"customer_email,omitempty"`
+	CustomerName  string                 `json:"customer_name,omitempty"`
+	ExternalID    string                 `json:"external_id,omitempty"`
 	Metadata      map[string]interface{} `json:"metadata,omitempty"`
 }
 
 // Subscription represents a subscription.
 type Subscription struct {
-	ID            string `json:"id"`
-	PlanID        string `json:"plan_id"`
-	MerchantID    string `json:"merchant_id"`
-	CustomerEmail string `json:"customer_email,omitempty"`
-	CustomerName  string `json:"customer_name,omitempty"`
-	ExternalID    string `json:"external_id,omitempty"`
-	Status        string `json:"status"`
+	ID                 string `json:"id"`
+	PlanID             string `json:"plan_id"`
+	MerchantID         string `json:"merchant_id"`
+	CustomerEmail      string `json:"customer_email,omitempty"`
+	CustomerName       string `json:"customer_name,omitempty"`
+	ExternalID         string `json:"external_id,omitempty"`
+	Status             string `json:"status"`
 	CurrentPeriodStart string `json:"current_period_start,omitempty"`
 	CurrentPeriodEnd   string `json:"current_period_end,omitempty"`
-	CancelledAt   string `json:"cancelled_at,omitempty"`
-	PausedAt      string `json:"paused_at,omitempty"`
-	CreatedAt     string `json:"created_at"`
-	UpdatedAt     string `json:"updated_at"`
+	CancelledAt        string `json:"cancelled_at,omitempty"`
+	PausedAt           string `json:"paused_at,omitempty"`
+	CreatedAt          string `json:"created_at"`
+	UpdatedAt          string `json:"updated_at"`
 }
 
 // SubscriptionResult is the response for creating a subscription (includes invoice).
@@ -543,7 +543,7 @@ type CreateDepositUserRequest struct {
 // DepositUser represents a deposit API user.
 type DepositUser struct {
 	ID         string                 `json:"id"`
-	MerchantID string                `json:"merchant_id"`
+	MerchantID string                 `json:"merchant_id"`
 	ExternalID string                 `json:"external_id"`
 	Email      string                 `json:"email,omitempty"`
 	Name       string                 `json:"name,omitempty"`
